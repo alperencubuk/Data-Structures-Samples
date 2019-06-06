@@ -1,0 +1,36 @@
+
+void SinglyLinkedList::insertOrdered(const string& e, const int& i)
+{
+	SinglyNode* newNode = new SinglyNode;
+	newNode->elem		= e;
+	newNode->score		= i;
+	newNode->next		= NULL;
+
+	// Liste bos mu?
+	if (head == NULL)
+	{
+		head = newNode;
+		return;
+	}
+
+	// newNode listenin basina mi eklenecek?
+	if (newNode->score < head->score)
+	{
+		newNode->next	= head;
+		head			= newNode;
+		return;
+	}
+
+	SinglyNode* current  = head;
+	SinglyNode* previous = NULL;
+	while (current != NULL)
+	{
+		if (newNode->score >= current->score) 
+			previous = current;
+		current = current->next;
+	}
+
+	// newNode'u previous'tan sonra (current'tan önce) ekle
+	newNode->next	= previous->next;
+	previous->next	= newNode;
+}

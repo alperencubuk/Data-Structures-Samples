@@ -1,0 +1,22 @@
+
+void SinglyLinkedList::removeBack()			
+{
+	if (empty())
+	{
+		cout << "List is empty !" << endl;
+		return;
+	}
+
+	SinglyNode* last = head;
+	SinglyNode* prev = head;
+
+	while (last->next != NULL)
+	{
+		prev = last;
+		last = last->next;
+	}
+
+	prev->next = NULL;
+	if (last == head) head = NULL;
+	delete last;
+}
