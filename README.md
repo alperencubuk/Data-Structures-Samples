@@ -4,4 +4,4 @@ Data Structures example codes.
 
 ---
 
-**Alperen Çubuk**
+**Alperen Cubuk**
